@@ -6,6 +6,7 @@ Run with:
 from __future__ import annotations
 
 import sqlite3
+from contextlib import closing
 from datetime import date
 from pathlib import Path
 
@@ -20,11 +21,10 @@ st.set_page_config(page_title="GRC Risk & Compliance Dashboard", layout="wide", 
 
 @st.cache_data(ttl=60)
 def load_data():
-    conn = sqlite3.connect(DB_PATH)
-    risks = pd.read_sql("SELECT * FROM risks", conn)
-    actions = pd.read_sql("SELECT * FROM remediation_actions", conn)
-    kris = pd.read_sql("SELECT * FROM kri_snapshots", conn)
-    conn.close()
+    with closing(sqlite3.connect(DB_PATH)) as conn:
+        risks = pd.read_sql("SELECT * FROM risks", conn)
+        actions = pd.read_sql("SELECT * FROM remediation_actions", conn)
+        kris = pd.read_sql("SELECT * FROM kri_snapshots", conn)
 
     risks["inherent_risk"] = risks["likelihood"] * risks["impact"]
     risks["residual_risk"] = (risks["inherent_risk"] * (1 - risks["control_effectiveness"])).round(1)

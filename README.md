@@ -74,6 +74,18 @@ streamlit run app/dashboard.py
 
 Open the local URL Streamlit prints (defaults to `http://localhost:8501`).
 
+## 🤖 CI/CD & Testing
+
+This project includes a Python test suite and automated CI/CD checks:
+- **Unit Tests**: Built with `pytest` to test the SQLite database seeding process (`tests/test_seed_data.py`) and the risk calculation math (`tests/test_calculations.py`).
+- **CI/CD Pipeline**: A GitHub Actions workflow (`.github/workflows/python-ci.yml`) runs on push/pull request. It checks formatting (`flake8`), performs security analysis (`bandit`), seeds the database, and runs the test suite.
+
+To run tests locally:
+```bash
+pip install pytest
+pytest
+```
+
 ## What the dashboard shows
 
 - **KPI cards** — open risks, high residual-risk count, overdue remediation %, average residual risk
@@ -87,11 +99,16 @@ Open the local URL Streamlit prints (defaults to `http://localhost:8501`).
 
 ```
 grc-risk-dashboard/
+├── .github/workflows/
+│   └── python-ci.yml       # GitHub Actions CI workflow
 ├── db/
 │   ├── schema.sql          # risk register schema
 │   └── seed_data.py        # synthetic sample data generator
 ├── app/
 │   └── dashboard.py        # Streamlit dashboard
+├── tests/
+│   ├── test_calculations.py# tests risk calculations
+│   └── test_seed_data.py   # tests SQLite database seeding
 └── requirements.txt
 ```
 

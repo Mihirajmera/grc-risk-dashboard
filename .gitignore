@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+db/risk_register.db
+.pytest_cache/
+venv/
+test_env/
