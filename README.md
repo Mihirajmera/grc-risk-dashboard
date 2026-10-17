@@ -1,5 +1,9 @@
 # 📊 GRC Risk & Compliance Dashboard
 
+[![CI](https://github.com/Mihirajmera/grc-risk-dashboard/actions/workflows/python-ci.yml/badge.svg)](https://github.com/Mihirajmera/grc-risk-dashboard/actions/workflows/python-ci.yml)
+[![CodeQL](https://github.com/Mihirajmera/grc-risk-dashboard/actions/workflows/codeql.yml/badge.svg)](https://github.com/Mihirajmera/grc-risk-dashboard/actions/workflows/codeql.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Mihirajmera/grc-risk-dashboard/badge)](https://scorecard.dev/viewer/?uri=github.com/Mihirajmera/grc-risk-dashboard)
+[![Release](https://img.shields.io/github/v/release/Mihirajmera/grc-risk-dashboard?color=0891b2)](https://github.com/Mihirajmera/grc-risk-dashboard/releases)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
