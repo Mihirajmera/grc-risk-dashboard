@@ -9,6 +9,8 @@
 [![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
+**▶ [Open the live demo](https://mihirajmera.github.io/grc-risk-dashboard/)**: the real app, running entirely in your browser (Streamlit via [stlite](https://github.com/whitphx/stlite) and Pyodide), on synthetic data. No install, no server; the first load takes about 30 seconds while Python downloads.
+
 An interactive risk register and KRI/KPI dashboard, built to mirror the executive risk
 and compliance reporting produced in enterprise GRC platforms (ServiceNow GRC / RSA
 Archer) — but as a lightweight, reproducible SQL + Streamlit app instead of a licensed
