@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRC Risk &amp; Compliance Dashboard · live demo</title>
+<meta name="description" content="Interactive risk register and KRI dashboard, running entirely in your browser with stlite (Streamlit on Pyodide). Synthetic data.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/browser@1.9.2/build/stlite.css">
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; }
+  .banner { padding: 10px 16px; font-size: 14px; background: #141414; color: #f4f3ef; }
+  .banner a { color: #f4f3ef; }
+  #loading { padding: 32px 16px; color: #5c5a55; }
+</style>
+</head>
+<body>
+<div class="banner">Live demo running entirely in your browser (Streamlit via stlite + Pyodide), with synthetic data. First load downloads Python, about 20&nbsp;MB. · <a href="https://github.com/Mihirajmera/grc-risk-dashboard">Source</a></div>
+<div id="root"><p id="loading">Starting Python in your browser…</p></div>
+<script type="module">
+import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@1.9.2/build/stlite.js";
+mount({
+  requirements: ["plotly", "sqlite3"],
+  entrypoint: "app/dashboard.py",
+  files: {
+    "app/dashboard.py": { url: "./app/dashboard.py" },
+    "db/risk_register.db": { url: "./db/risk_register.db" },
+  },
+}, document.getElementById("root"));
+</script>
+</body>
+</html>
