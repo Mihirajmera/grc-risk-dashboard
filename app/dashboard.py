@@ -65,7 +65,7 @@ def main():
             labels={"impact": "Impact", "likelihood": "Likelihood"},
         )
         fig.update_layout(height=380, margin=dict(l=10, r=10, t=10, b=10))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     with col_b:
         st.subheader("Risks by Category")
@@ -73,7 +73,7 @@ def main():
         by_cat.columns = ["category", "count"]
         fig2 = px.pie(by_cat, names="category", values="count", hole=0.5)
         fig2.update_layout(height=380, margin=dict(l=10, r=10, t=10, b=10))
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig2, width="stretch")
 
     st.divider()
 
@@ -89,7 +89,7 @@ def main():
         line_dash="dash", line_color="red", annotation_text="Threshold",
     )
     fig3.update_layout(height=320, margin=dict(l=10, r=10, t=10, b=10))
-    st.plotly_chart(fig3, use_container_width=True)
+    st.plotly_chart(fig3, width="stretch")
 
     st.divider()
 
@@ -100,7 +100,7 @@ def main():
             merged[["action_id", "title", "description", "owner", "due_date", "category"]]
             .rename(columns={"title": "risk_title"})
             .sort_values("due_date"),
-            use_container_width=True, hide_index=True,
+            width="stretch", hide_index=True,
         )
     else:
         st.success("No overdue remediation actions.")
@@ -110,7 +110,7 @@ def main():
         risks[["risk_id", "title", "category", "business_unit", "likelihood", "impact",
                "inherent_risk", "control_effectiveness", "residual_risk", "owner", "status", "framework_refs"]]
         .sort_values("residual_risk", ascending=False),
-        use_container_width=True, hide_index=True,
+        width="stretch", hide_index=True,
     )
 
 

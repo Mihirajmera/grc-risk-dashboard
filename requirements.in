@@ -7,3 +7,10 @@ plotly
 pytest
 flake8
 bandit
+
+# Security floors (Dependabot alerts, 2026-10-21). Newer than the two-week cutoff on purpose;
+# regenerate with: --exclude-newer-package certifi=2026-10-21 --exclude-newer-package pillow=2026-10-21 --exclude-newer-package streamlit=2026-10-22
+# Streamlit 1.66.1 is the first release that allows Pillow 13; older ones cap it below 13.
+certifi>=2026.10.19
+pillow>=13.0.0
+streamlit>=1.66.1
