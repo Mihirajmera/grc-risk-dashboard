@@ -22,6 +22,9 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+      # The database is generated (seeded, so the same each run), not committed.
+      - name: Build the sample database
+        run: python3 db/seed_data.py
       - name: Assemble site
         run: |
           mkdir -p _site/app _site/db
